@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple sessionStorage Example</title>
+  </head>
+  <body>
+    <input type="text" id="name" />
+    <button onclick="saveName()">Save</button>
+    <button onclick="showName()">Show</button>
+    <h1 id="h1"></h1>
+
+    <script>
+      // მონაცემების sessionStorage-ში შენახვა
+      function saveName() {
+        // ვიღებთ ელემენტს, რომლის აიდია "name"
+        const name = document.getElementById("name");
+        // ვიღებთ მნიშვნელობას, რომელიც ტექსტის ველშია ჩაწერილი
+        const nameValue = name.value;
+        // ვინახავთ sessionStorage-ში key-ით "name" და მნიშვნელობით, რაც nameValue-შია
+        sessionStorage.setItem("name", nameValue);
+      }
+
+      // მონაცემების sessionStorage-დან მიღება
+      function showName() {
+        // ვიღებთ ელემენტს, რომლის აიდია "h1"
+        const h1 = document.getElementById("h1");
+        // ვიღებთ შენახულ მონაცემს sessionStorage-დან key-ით "name"
+        const nameSaved = sessionStorage.getItem("name");
+        // ვამატებთ ამ მნიშვნელობას ელემენტში, რომლის აიდია "h1"
+        h1.innerHTML = nameSaved;
+      }
+    </script>
+  </body>
+</html>  
